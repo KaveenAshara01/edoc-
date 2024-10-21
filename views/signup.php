@@ -22,7 +22,7 @@
                 </td>
             </tr>
             <tr>
-                <form action="/edoc/controllers/SignupController.php" method="POST" >
+                <form action="/edoc/edoc-/controllers/SignupController.php" method="POST" >
                 <td class="label-td" colspan="2">
                     <label for="name" class="form-label">Name: </label>
                 </td>

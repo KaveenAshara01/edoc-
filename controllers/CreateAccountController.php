@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION["usertype"] = "p";
             $_SESSION["username"] = $fname;
 
-            header('Location: /edoc/controllers/PatientController.php');
+            header('Location: /edoc/edoc-/controllers/PatientController.php');
             exit();
         }
     } else {

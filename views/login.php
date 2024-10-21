@@ -21,7 +21,7 @@
                     <td><p class="sub-text">Login with your details to continue</p></td>
                 </tr>
                 <tr>
-                <form action="/edoc/controllers/LoginController.php" method="POST">
+                <form action="/edoc/edoc-/controllers/LoginController.php" method="POST">
                         <td class="label-td"><label for="useremail" class="form-label">Email: </label></td>
                 </tr>
                 <tr>

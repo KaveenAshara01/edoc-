@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($patient) {
                 $_SESSION['user'] = $email;
                 $_SESSION['usertype'] = 'p';
-                header('Location:  /edoc/controllers/PatientController.php');
+                header('Location:  /edoc/edoc-/controllers/PatientController.php');
                 exit();
             } else {
                 $error = 'Invalid email or password for patient.';
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($admin) {
                 $_SESSION['user'] = $email;
                 $_SESSION['usertype'] = 'a';
-                header('Location: /edoc/admin/index.php');
+                header('Location: /edoc/edoc-/views/admin/index.php');
                 exit();
             } else {
                 $error = 'Invalid email or password for admin.';
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($doctor) {
                 $_SESSION['user'] = $email;
                 $_SESSION['usertype'] = 'd';
-                header('Location: /edoc/doctor/index.php');
+                header('Location: /edoc/edoc-/views/doctor/index.php');
                 exit();
             } else {
                 $error = 'Invalid email or password for doctor.';

@@ -12,10 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     );
 
     // Redirect to the account creation page
-    header("Location: /edoc/views/createAccount.php");
+    header("Location: /edoc/edoc-/views/createAccount.php");
     exit();
 } else {
     // If the request is not POST, redirect back to the signup form
-    header("Location: /edoc/views/signup.php");
+    header("Location: /edoc/edoc-/views/signup.php");
     exit();
 }

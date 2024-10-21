@@ -22,7 +22,7 @@
                 </td>
             </tr>
             <tr>
-                <form action="/edoc/controllers/CreateAccountController.php" method="POST">
+                <form action="/edoc/edoc-/controllers/CreateAccountController.php" method="POST">
                 <td class="label-td" colspan="2">
                     <label for="newemail" class="form-label">Email: </label>
                 </td>
