@@ -51,5 +51,30 @@ class DoctorModel {
 
         return $specialty['sname'];
     }
+
+
+
+    // Function to check if email already exists in the webuser table
+    public function emailExists($email) {
+        $stmt = $this->db->prepare("SELECT * FROM webuser WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->num_rows > 0;
+    }
+
+    // Function to create a new doctor
+    public function createDoctor($name, $email, $password, $nic, $tele, $spec) {
+        // Insert into doctor table
+        $stmt1 = $this->db->prepare("INSERT INTO doctor (docemail, docname, docpassword, docnic, doctel, specialties) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt1->bind_param("sssssi", $email, $name, $password, $nic, $tele, $spec);
+
+        // Insert into webuser table
+        $stmt2 = $this->db->prepare("INSERT INTO webuser (email, usertype) VALUES (?, 'd')");
+        $stmt2->bind_param("s", $email);
+
+        return $stmt1->execute() && $stmt2->execute();
+    }
+
 }
 ?>

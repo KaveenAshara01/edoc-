@@ -435,7 +435,7 @@
                             </tr>
                             
                             <tr>
-                                <form action="add-new.php" method="POST" class="add-new-form">
+                                <form action="../../controllers/DoctorController.php" method="POST" class="add-new-form">
                                 <td class="label-td" colspan="2">
                                     <label for="name" class="form-label">Name: </label>
                                 </td>

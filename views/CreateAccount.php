@@ -78,7 +78,7 @@
             <tr>
                 <td colspan="2">
                     <label for="" class="sub-text">Already have an account? </label>
-                    <a href="/edoc/login.php" class="hover-link1 non-style-link">Login</a>
+                    <a href="/edoc/edoc-/views/login.php" class="hover-link1 non-style-link">Login</a>
                 </td>
             </tr>
             </form>

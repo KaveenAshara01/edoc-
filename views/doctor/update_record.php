@@ -9,39 +9,59 @@
     <link rel="stylesheet" href="../css/admin.css">
     <title>Update Record</title>
     <style>
-        
-        /* h2 {
-            text-align: center;
-            color: rgb(49, 49, 49);
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        label {
-            font-weight: bold;
-            color: rgb(49, 49, 49);
-        }
-        input[type="text"], textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        button {
-            padding: 15px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #0056b3;
-        } */
+
+
+
+input[type="text"], textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus, textarea:focus {
+    border-color: #4A90E2;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.6);
+    outline: none;
+}
+
+textarea {
+    resize: none;
+}
+
+.login-btn {
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="submit"] {
+    font-size: 18px;
+    padding: 15px 30px;
+    background-color: #4A90E2;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #357ABD;
+}
+
+
+
     </style>
 </head>
 <body>

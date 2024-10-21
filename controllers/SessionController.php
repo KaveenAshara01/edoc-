@@ -9,7 +9,7 @@ $sessionModel = new SessionModel($db);
 
 // Ensure user is logged in
 if (!isset($_SESSION["user"]) || ($_SESSION["user"] == "" || $_SESSION['usertype'] != 'p')) {
-    header("Location: ../login.php");
+    header("Location: ../views/login.php");
     exit();
 }
 
@@ -22,7 +22,7 @@ if ($patient) {
     $_SESSION['userid'] = $patient["pid"];
     $_SESSION['username'] = $patient["pname"];
 } else {
-    header("Location: ../login.php");
+    header("Location: ../views/login.php");
     exit();
 }
 
