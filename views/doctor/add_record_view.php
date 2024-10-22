@@ -13,7 +13,7 @@ if(isset($_SESSION["user"])){
     header("location: ../login.php");
 }
 
-// Import database
+
 include("../connection.php");
 $userrow = $database->query("SELECT * FROM doctor WHERE docemail='$useremail'");
 $userfetch = $userrow->fetch_assoc();

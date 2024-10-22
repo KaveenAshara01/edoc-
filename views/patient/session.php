@@ -128,7 +128,7 @@ $today = date('Y-m-d');
             <table border="0" width="100%" style="margin-top:25px;">
                 <tr>
                     <td width="13%">
-                        <a href="schedule.php">
+                        <a href="doctors.php">
                             <button class="login-btn btn-primary-soft btn btn-icon-back" style="padding:11px;width:125px">
                                 <font class="tn-in-text">Back</font>
                             </button>

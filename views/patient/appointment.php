@@ -16,6 +16,130 @@
         .sub-table{
             animation: transitionIn-Y-bottom 0.5s;
         }
+
+         /* Menu toggle for mobile view */
+         .menu-toggle-btn {
+            display: none;
+            background-color: #333;
+            color: white;
+            width: 100%;
+            text-align: left;
+            padding: 15px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+
+        /* Adjust dashboard layout
+        .dash-body {
+            margin-left: 300px;
+            width: calc(100% - 300px);
+        } */
+
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                width: 100%;
+            }
+
+            .menu-toggle-btn {
+                display: block;
+            }
+
+            .dash-body {
+                margin: 0;
+                width: 100%;
+                padding-top: 60px;
+            }
+
+            /* Make sure the menu takes full width on mobile */
+            .menu-container {
+                width: 100%;
+            }
+
+            /* Stack items vertically on mobile */
+            .dashboard-items {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            /* Stack Status and Upcoming Booking vertically */
+            .status-booking-container {
+                display: flex;
+                flex-direction: column; /* Stack elements vertically */
+                width: 100%;
+            }
+
+            .status-column, .booking-column {
+                width: 100%; /* Full width on mobile */
+                padding: 10px;
+            }
+
+            .filter-container {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .menu-toggle-btn {
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            .profile-title {
+                font-size: 12px;
+            }
+
+            .profile-subtitle {
+                font-size: 10px;
+            }
+
+            .heading-sub12 {
+                font-size: 10px;
+            }
+
+            .dash-body {
+                padding: 5px;
+            }
+
+            .menu-btn .menu-text {
+                font-size: 12px;
+            }
+
+            .h1-dashboard {
+                font-size: 18px;
+            }
+
+            .h3-dashboard {
+                font-size: 12px;
+            }
+
+            .filter-container {
+                padding: 5px;
+            }
+
+            .sub-table {
+                font-size: 10px;
+            }
+
+            .table-headin {
+                font-size: 10px;
+            }
+
+            .btn-label {
+                padding: 5px;
+                font-size: 12px;
+            }
+
+            img {
+                width: 80%;
+            }
+        }
 </style>
 </head>
 <body>
@@ -77,7 +201,8 @@
     $result= $database->query($sqlmain);
     ?>
     <div class="container">
-        <div class="menu">
+        <button class="menu-toggle-btn" onclick="toggleMenu()">☰ Menu</button>
+        <div class="menu" id="menuContainer">
         <table class="menu-container" border="0">
                 <tr>
                     <td style="padding:10px" colspan="2">
@@ -101,7 +226,7 @@
                 </tr>
                 <tr class="menu-row" >
                     <td class="menu-btn menu-icon-home" >
-                        <a href="index.php" class="non-style-link-menu "><div><p class="menu-text">Home</p></a></div></a>
+                        <a href="patient_dashboard.php" class="non-style-link-menu "><div><p class="menu-text">Home</p></a></div></a>
                     </td>
                 </tr>
                 <tr class="menu-row">
@@ -301,46 +426,7 @@
                                         }
                                         echo "</tr>";
                            
-                                // for ( $x=0; $x<$result->num_rows;$x++){
-                                //     $row=$result->fetch_assoc();
-                                //     $appoid=$row["appoid"];
-                                //     $scheduleid=$row["scheduleid"];
-                                //     $title=$row["title"];
-                                //     $docname=$row["docname"];
-                                //     $scheduledate=$row["scheduledate"];
-                                //     $scheduletime=$row["scheduletime"];
-                                //     $pname=$row["pname"];
-                                //     
-                                //     
-                                //     echo '<tr >
-                                //         <td style="font-weight:600;"> &nbsp;'.
-                                        
-                                //         substr($pname,0,25)
-                                //         .'</td >
-                                //         <td style="text-align:center;font-size:23px;font-weight:500; color: var(--btnnicetext);">
-                                //         '.$apponum.'
-                                        
-                                //         </td>
-                                //         <td>
-                                //         '.substr($title,0,15).'
-                                //         </td>
-                                //         <td style="text-align:center;;">
-                                //             '.substr($scheduledate,0,10).' @'.substr($scheduletime,0,5).'
-                                //         </td>
-                                        
-                                //         <td style="text-align:center;">
-                                //             '.$appodate.'
-                                //         </td>
-
-                                //         <td>
-                                //         <div style="display:flex;justify-content: center;">
-                                        
-                                //         <!--<a href="?action=view&id='.$appoid.'" class="non-style-link"><button  class="btn-primary-soft btn button-icon btn-view"  style="padding-left: 40px;padding-top: 12px;padding-bottom: 12px;margin-top: 10px;"><font class="tn-in-text">View</font></button></a>
-                                //        &nbsp;&nbsp;&nbsp;-->
-                                //        <a href="?action=drop&id='.$appoid.'&name='.$pname.'&session='.$title.'&apponum='.$apponum.'" class="non-style-link"><button  class="btn-primary-soft btn button-icon btn-delete"  style="padding-left: 40px;padding-top: 12px;padding-bottom: 12px;margin-top: 10px;"><font class="tn-in-text">Cancel</font></button></a>
-                                //        &nbsp;&nbsp;&nbsp;</div>
-                                //         </td>
-                                //     </tr>';
+                               
                                     
                                 }
                             }
@@ -526,6 +612,17 @@
 
     ?>
     </div>
+
+    <script>
+    function toggleMenu() {
+        var menu = document.getElementById("menuContainer");
+        if (menu.style.display === "block") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "block";
+        }
+    }
+</script>
 
 </body>
 </html>

@@ -1,11 +1,15 @@
 <?php
 session_start();
-require_once '../models/Database.php';  // Include database connection
-require_once '../models/UserModel.php'; // Include the UserModel
+require_once '../models/Database.php';  
+require_once '../models/UserModel.php'; 
 
-$database = new Database();
-$db = $database->connect();
-$userModel = new UserModel($db);  // Initialize the UserModel
+// $database = new Database();
+// $db = $database->connect();
+
+$dbInstance = Database::getInstance();
+$db = $dbInstance->getConnection();
+
+$userModel = new UserModel($db);  
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fname = $_SESSION['personal']['fname'];
@@ -19,18 +23,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $newpassword = $_POST['newpassword'];
     $cpassword = $_POST['cpassword'];
 
-    // Check if passwords match
+    
     if ($newpassword === $cpassword) {
         // Check if email already exists
         if ($userModel->emailExists($email)) {
             $error = '<label style="color:rgb(255, 62, 62);text-align:center;">An account already exists with this email address.</label>';
             include '../views/createAccount.php';
         } else {
-            // Insert into patient and webuser tables using the model
+           
             $userModel->createPatient($email, $name, $newpassword, $address, $nic, $dob, $tele);
             $userModel->createWebUser($email);
 
-            // Set session variables and redirect to patient dashboard
+            
             $_SESSION["user"] = $email;
             $_SESSION["usertype"] = "p";
             $_SESSION["username"] = $fname;

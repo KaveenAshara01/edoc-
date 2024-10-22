@@ -3,8 +3,12 @@ session_start();
 require_once '../models/Database.php';
 require_once '../models/PatientModel.php';
 
-$database = new Database();
-$db = $database->connect();
+// $database = new Database();
+// $db = $database->connect();
+
+$dbInstance = Database::getInstance();
+$db = $dbInstance->getConnection();
+
 $patientModel = new PatientModel($db);
 
 // Check if the user is logged in and if they are a patient

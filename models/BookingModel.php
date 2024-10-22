@@ -5,8 +5,14 @@ class BookingModel {
     private $db;
 
     public function __construct() {
-        // Assuming you have a Database class that handles your DB connection
-        $this->db = (new Database())->connect(); // Use the connect method if it's defined
+//         $dbInstance = Database::getInstance();
+// $conn = $dbInstance->getConnection();
+
+// $this->db =$conn;
+
+
+$this->db = Database::getInstance()->getConnection();
+        // $this->db = (new Database())->connect(); 
     }
 
     public function createAppointment($scheduleid, $userid) {

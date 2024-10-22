@@ -5,7 +5,12 @@ class RecordModel {
     private $db;
 
     public function __construct() {
-        $this->db = (new Database())->connect(); 
+
+        $dbInstance = Database::getInstance();
+$conn = $dbInstance->getConnection();
+
+$this->db =$conn;
+        // $this->db = (new Database())->connect(); 
     }
 
     public function addRecord($patientId, $doctorId, $recordName, $details) {

@@ -6,7 +6,14 @@ class ScheduleModel {
 
     // Constructor to initialize the database connection
     public function __construct() {
-        $this->db = (new Database())->connect();
+
+
+        $dbInstance = Database::getInstance();
+$conn = $dbInstance->getConnection();
+
+$this->db =$conn;
+
+        // $this->db = (new Database())->connect();
     }
 
     // Function to add a session using prepared statements

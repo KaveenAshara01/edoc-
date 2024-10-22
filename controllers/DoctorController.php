@@ -10,8 +10,12 @@ if (!isset($_SESSION["user"]) ) {
 }
 
 // Initialize database connection
-$database = new Database();
-$db = $database->connect();
+// $database = new Database();
+// $db = $database->connect();
+
+$dbInstance = Database::getInstance();
+$db = $dbInstance->getConnection();
+
 $doctorModel = new DoctorModel($db);
 
 // Handle GET and POST requests

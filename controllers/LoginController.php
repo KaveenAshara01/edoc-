@@ -3,8 +3,11 @@ require_once '../models/UserModel.php';  // Assuming UserModel handles webuser t
 require_once '../models/Database.php';   // Assuming Database handles the database connection
 
 // Initialize the database connection
-$database = new Database();
-$db = $database->connect();
+// $database = new Database();
+// $db = $database->connect();
+
+$dbInstance = Database::getInstance();
+$db = $dbInstance->getConnection();
 
 session_start();
 

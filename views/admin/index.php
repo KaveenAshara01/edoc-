@@ -26,7 +26,7 @@
 <body>
     <?php
 
-    //learn from w3schools.com
+    
 
     session_start();
 
@@ -40,7 +40,7 @@
     }
     
 
-    //import database
+   
     include("../connection.php");
 
     
@@ -151,8 +151,17 @@
                             <td width="10%">
                                 <button  class="btn-label"  style="display: flex;justify-content: center;align-items: center;"><img src="../img/calendar.svg" width="100%"></button>
                             </td>
-        
-        
+        <tr>
+        <td width="95%">    </td>
+                            <td width="15%">
+    
+    <a href="generate_dashboard_report.php" class="non-style-link">
+        <button class="login-btn btn-primary btn" style="padding-left: 25px;padding-right: 25px;padding-top: 10px;padding-bottom: 10px;">
+            Generate Report
+        </button>
+    </a>
+</td>
+                                    </tr>
                         </tr>
                 <tr>
                     <td colspan="4">
@@ -170,6 +179,8 @@
                                         <div>
                                                 <div class="h1-dashboard">
                                                     <?php    echo $doctorrow->num_rows  ?>
+                                                    <?php  $_SESSION["doccount"]= $doctorrow->num_rows ?>
+           
                                                 </div><br>
                                                 <div class="h3-dashboard">
                                                     Doctors &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -183,6 +194,8 @@
                                         <div>
                                                 <div class="h1-dashboard">
                                                     <?php    echo $patientrow->num_rows  ?>
+                                                    <?php  $_SESSION["patcount"]= $patientrow->num_rows ?>
+           
                                                 </div><br>
                                                 <div class="h3-dashboard">
                                                     Patients &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -196,6 +209,7 @@
                                         <div>
                                                 <div class="h1-dashboard" >
                                                     <?php    echo $appointmentrow ->num_rows  ?>
+                                                    <?php  $_SESSION["appcount"]= $appointmentrow->num_rows ?>
                                                 </div><br>
                                                 <div class="h3-dashboard" >
                                                     NewBooking &nbsp;&nbsp;
@@ -209,6 +223,7 @@
                                         <div>
                                                 <div class="h1-dashboard">
                                                     <?php    echo $schedulerow ->num_rows  ?>
+                                                    <?php  $_SESSION["schedulecount"]= $schedulerow->num_rows ?>
                                                 </div><br>
                                                 <div class="h3-dashboard" style="font-size: 15px">
                                                     Today Sessions

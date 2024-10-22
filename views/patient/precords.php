@@ -28,6 +28,130 @@
     white-space: nowrap; /* Prevents text from wrapping */
 }
 
+/* Menu toggle for mobile view */
+.menu-toggle-btn {
+            display: none;
+            background-color: #333;
+            color: white;
+            width: 100%;
+            text-align: left;
+            padding: 15px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+
+        /* Adjust dashboard layout
+        .dash-body {
+            margin-left: 300px;
+            width: calc(100% - 300px);
+        } */
+
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                width: 100%;
+            }
+
+            .menu-toggle-btn {
+                display: block;
+            }
+
+            .dash-body {
+                margin: 0;
+                width: 100%;
+                padding-top: 60px;
+            }
+
+            /* Make sure the menu takes full width on mobile */
+            .menu-container {
+                width: 100%;
+            }
+
+            /* Stack items vertically on mobile */
+            .dashboard-items {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            /* Stack Status and Upcoming Booking vertically */
+            .status-booking-container {
+                display: flex;
+                flex-direction: column; /* Stack elements vertically */
+                width: 100%;
+            }
+
+            .status-column, .booking-column {
+                width: 100%; /* Full width on mobile */
+                padding: 10px;
+            }
+
+            .filter-container {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .menu-toggle-btn {
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            .profile-title {
+                font-size: 12px;
+            }
+
+            .profile-subtitle {
+                font-size: 10px;
+            }
+
+            .heading-sub12 {
+                font-size: 10px;
+            }
+
+            .dash-body {
+                padding: 5px;
+            }
+
+            .menu-btn .menu-text {
+                font-size: 12px;
+            }
+
+            .h1-dashboard {
+                font-size: 18px;
+            }
+
+            .h3-dashboard {
+                font-size: 12px;
+            }
+
+            .filter-container {
+                padding: 5px;
+            }
+
+            .sub-table {
+                font-size: 10px;
+            }
+
+            .table-headin {
+                font-size: 10px;
+            }
+
+            .btn-label {
+                padding: 5px;
+                font-size: 12px;
+            }
+
+            img {
+                width: 80%;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -59,7 +183,8 @@
     
     ?>
     <div class="container">
-    <div class="menu">
+    <button class="menu-toggle-btn" onclick="toggleMenu()">☰ Menu</button>
+        <div class="menu" id="menuContainer">
             <table class="menu-container" border="0">
                 <tr>
                     <td style="padding:10px" colspan="2">
@@ -83,7 +208,7 @@
                 </tr>
                 <tr class="menu-row" >
                     <td class="menu-btn menu-icon-home menu-active menu-icon-home-active" >
-                        <a href="index.php" class="non-style-link-menu non-style-link-menu"><div><p class="menu-text">Home</p></a></div></a>
+                        <a href="patient_dashboard.php" class="non-style-link-menu non-style-link-menu"><div><p class="menu-text">Home</p></a></div></a>
                     </td>
                 </tr>
                 <tr class="menu-row">
@@ -120,7 +245,7 @@
             <table border="0" width="100%" style="border-spacing: 0;margin:0;padding:0;margin-top:25px;">
                 <tr>
                     <td width="13%">
-                        <a href="index.php"><button class="login-btn btn-primary-soft btn btn-icon-back" style="padding-top:11px;padding-bottom:11px;margin-left:20px;width:125px"><font class="tn-in-text">Back</font></button></a>
+                        <a href="patient_dashboard.php"><button class="login-btn btn-primary-soft btn btn-icon-back" style="padding-top:11px;padding-bottom:11px;margin-left:20px;width:125px"><font class="tn-in-text">Back</font></button></a>
                     </td>
                     <td>
                         <p class="heading-main12" style="margin-left: 45px;font-size:18px;color:rgb(49, 49, 49)">Records of <?php echo $patient["pname"]; ?></p>
@@ -192,5 +317,17 @@
             </table>
         </div>
     </div>
+
+
+    <script>
+    function toggleMenu() {
+        var menu = document.getElementById("menuContainer");
+        if (menu.style.display === "block") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "block";
+        }
+    }
+</script>
 </body>
 </html>
