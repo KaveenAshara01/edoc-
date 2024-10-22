@@ -4,7 +4,7 @@ class Database {
     private $host = 'localhost'; // Your database host
     private $db_name = 'edoc'; // Your database name
     private $username = 'root'; // Your database username
-    private $password = '12345'; // Your database password
+    private $password = 'achintha2002'; // Your database password
     private static $instance = null; // Static property to hold the single instance
     public $conn;
 

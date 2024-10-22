@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="C:\xampp\htdocs\edoc\edoc-\phpunit.xml" tests="4" assertions="7" errors="0" failures="0" skipped="0" time="0.039686">
+    <testsuite name="Application Test Suite" tests="4" assertions="7" errors="0" failures="0" skipped="0" time="0.039686">
+      <testsuite name="LoginTest" file="C:\xampp\htdocs\edoc\edoc-\tests\LoginTest.php" tests="4" assertions="7" errors="0" failures="0" skipped="0" time="0.039686">
+        <testcase name="testValidPatientLogin" file="C:\xampp\htdocs\edoc\edoc-\tests\LoginTest.php" line="22" class="LoginTest" classname="LoginTest" assertions="3" time="0.009143"/>
+        <testcase name="testInvalidPassword" file="C:\xampp\htdocs\edoc\edoc-\tests\LoginTest.php" line="39" class="LoginTest" classname="LoginTest" assertions="1" time="0.002293"/>
+        <testcase name="testNonExistentUser" file="C:\xampp\htdocs\edoc\edoc-\tests\LoginTest.php" line="49" class="LoginTest" classname="LoginTest" assertions="1" time="0.012516"/>
+        <testcase name="testEmptyEmailAndPassword" file="C:\xampp\htdocs\edoc\edoc-\tests\LoginTest.php" line="59" class="LoginTest" classname="LoginTest" assertions="2" time="0.015734"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

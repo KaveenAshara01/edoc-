@@ -9,9 +9,9 @@ class ScheduleModel {
 
 
         $dbInstance = Database::getInstance();
-$conn = $dbInstance->getConnection();
+        $conn = $dbInstance->getConnection();
 
-$this->db =$conn;
+        $this->db =$conn;
 
         // $this->db = (new Database())->connect();
     }
